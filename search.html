@@ -131,7 +131,7 @@
         dataType: "jsonp",
         success: function(data) {
           var results = $("#kundo_results").empty();
-          if (data) {
+          if (data.length > 0) {
             $.each(data, function(i, post){
               results.append(
                 '<li>' +
@@ -142,7 +142,7 @@
             });
           }
           else {
-            results.append("Inga träffar.");
+            results.append("<p>Inga träffar.</p>");
           }
         }
       });
