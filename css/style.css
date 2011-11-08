@@ -79,6 +79,26 @@ header {
     float: left;
     width: 715px;
   }
+    #content a {
+      border-bottom: 1px solid #ddd;
+    }
+    .search_results ul {
+      border-bottom: 1px solid #a5c956;
+      padding: 0;
+    }
+      .search_results li {
+        margin: 0;
+        padding-right: 100px;
+      }
+        .search_results h3 {
+          margin-bottom: 0.5em;
+        }
+        .search_results p {
+          margin-top: 0;
+        }
+        .search_results .highlighted {
+          background: #cdeb8e;
+        }
     .teaser {
       float: left;
       margin-right: 20px;

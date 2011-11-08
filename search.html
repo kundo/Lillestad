@@ -16,13 +16,13 @@
 <body>
   <header>
     <hgroup>
-      <h1>Lillestad kommun</h1>
+      <h1><a href="index.html">Lillestad kommun</a></h1>
       <h2>En demosajt för att visa hur en kommun skulle kunna använda Kundo</h2>
     </hgroup>
     <form action="search.html" method="get">
       <div>
         <label for="search">Sök:</label>
-        <input type="search" name="search">
+        <input type="search" name="search" id="search">
       </div>
       <button type="submit" class="grad">Sök</button>
     </form>
@@ -40,8 +40,18 @@
     </ul>
   </nav>
   <div id="main" role="main">
-    <section id="content">
-      <div id="search_results"></div>
+    <section id="content" class="search_results">
+      <h2>Sökresultat från vår webbplats</h2>
+      <ul id="site_results">
+        <li>
+          <h3><a href="#"><span class="highlighted">Kommunen</span> satsar på mångfald</a></h3>
+          <p>Öppenhet och mångfald ska genomsyra alla verksamheter. Vi vill att
+          Lillestad ska präglas av Öppenhet och Mångfald där människor med olika
+          bakgrund, förutsättningar, förmågor och mål samverkar.</p>
+        </li>
+      </ul>
+      <h2>Sökresultat från vårt medborgarforum</h2>
+      <ul id="kundo_results"></ul>
     </section>
     <section id="sidebar">
       <h2>Nyheter</h2>
@@ -76,7 +86,7 @@
     </address>
     <nav>
       <ul>
-        <li><a href="http://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till</a></li>
+        <li><a href="http://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
         <li><a href="#">Om webbplatsen</a></li>
         <li><a href="#">RSS</a></li>
         <li><a href="#">API</a></li>
@@ -109,28 +119,41 @@
     })();
   </script>
 
-  <!-- Load jQuery, and perform search again Kundos API -->
+  <!-- Load jQuery, and perform search against Kundo's API -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   <script>
-    $.getJSON('http://kundo.se/api/search/lillestads-kommun/medborgare.json?callback=fetch_results', function(data) {
-      var items = [];
-
-      $.each(data, function(key, val) {
-        items.push('<li id="' + key + '">' + val + '</li>');
+    var query = window.location.href.match(/\?search=(.*)/)[1];
+    query = decodeURIComponent(query);
+    if (query && query.length > 2) {
+      $("#search").val(query);
+      $.ajax({
+        url: 'http://kundo.se/api/search/lillestads-kommun/' + query + '.json',
+        dataType: "jsonp",
+        success: function(data) {
+          var results = $("#kundo_results").empty();
+          if (data) {
+            $.each(data, function(i, post){
+              results.append(
+                '<li>' +
+                  '<h3><a href="' + post.absolute_url + '">' + post.title + '</a></h3>' +
+                  '<p>' + post.text + '</p>' +
+                '</li>'
+              );
+            });
+          }
+          else {
+            results.append("Inga träffar.");
+          }
+        }
       });
-
-      $('<ul/>', {
-        'class': 'my-new-list',
-        html: items.join('')
-      }).appendTo('#search_results');
-    });
+    }
   </script>
 
   <!-- Load Google Analytics -->
   <script>
     var _gaq=[['_setAccount','UA-6180691-8'],['_trackPageview'],['_trackPageLoadTime']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    g.src=('https:'==location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
 </body>
