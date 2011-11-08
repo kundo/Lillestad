@@ -122,8 +122,8 @@
   <!-- Load jQuery, and perform search against Kundo's API -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   <script>
-    var query = window.location.href.match(/\?search=(.*)/)[1];
-    query = decodeURIComponent(query);
+    var match = window.location.href.match(/\?search=(.+)/),
+        query = match? decodeURIComponent(match[1]): null;
     if (query && query.length > 2) {
       $("#search").val(query);
       $.ajax({
