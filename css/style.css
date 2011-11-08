@@ -1,3 +1,10 @@
+/* Reset CSS from https://github.com/h5bp/html5-boilerplate/blob/master/css/style.css */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+/* Structural CSS for lillestad.se */
 body {
   border-bottom: 20px solid white;
   color: #333;
@@ -111,6 +118,7 @@ header {
       margin-right: 0;
     }
       .teaser img {
+        border: none;
         border-top: 3px solid #A7CA58;
         display: block;
         width: 100%;
