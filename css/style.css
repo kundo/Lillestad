@@ -17,6 +17,13 @@ h1{font-size:2em}
 h2{font-size:1.5em}
 h3{font-size:1.2em}
 
+/* Kundo: Use a link to the forum page instead of the button for mobile devices */
+@media (max-width: 569px) {
+	#kundo_button_container,#tyck-till-footer{
+		display:none;
+	}
+}
+
 /* Structural CSS for lillestad.se */
 body {
   border-bottom: 20px solid white;
