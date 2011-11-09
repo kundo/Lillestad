@@ -22,7 +22,7 @@
     <form action="search.html" method="get">
       <div>
         <label for="search">Sök:</label>
-        <input type="search" name="search" id="search">
+        <input type="search" name="q" id="search" placeholder="T.ex: kommunen, klotter">
       </div>
       <button type="submit" class="grad">Sök</button>
     </form>
@@ -78,6 +78,7 @@
       <h2 id="kundo-header">Medborgare tycker till:</h2>
       <div id="kundo-widget"></div>
       <script>(function() {function async_load(){var s=document.createElement("script"); window.kundo_widget_width=""; s.type="text/javascript"; s.async=true; s.src="http://kundo.se/widget/lillestads-kommun.js?data=latest&style=none&width=0&watermark=false"; var x=document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,x);} if(window.attachEvent) window.attachEvent("onload",async_load); else window.addEventListener("load",async_load,false);})();</script>
+    </section>
   </div>
   <footer class="grad">
     <address>
@@ -122,15 +123,15 @@
   <!-- Load jQuery, and perform search against Kundo's API -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
   <script>
-    var match = window.location.href.match(/\?search=(.+)/),
-        query = match? decodeURIComponent(match[1]): null;
-    if (query && query.length > 2) {
+    var match = window.location.href.match(/\?q=(.+)/),
+        query = match? decodeURIComponent(match[1]): null,
+        results = $("#kundo_results").empty();
+    if (query && query.length > 0) {
       $("#search").val(query);
       $.ajax({
         url: 'http://kundo.se/api/search/lillestads-kommun/' + query + '.json',
         dataType: "jsonp",
         success: function(data) {
-          var results = $("#kundo_results").empty();
           if (data.length > 0) {
             $.each(data, function(i, post){
               results.append(
@@ -146,6 +147,9 @@
           }
         }
       });
+    }
+    else {
+      results.append("<p>Du behöver skriva in en sökfråga för att få några träffar.</p>")
     }
   </script>
 
