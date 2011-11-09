@@ -1,6 +1,6 @@
 /* Reset CSS from https://github.com/h5bp/html5-boilerplate/blob/master/css/style.css */
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}
-html{font-size:100%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
 body{margin:0;font-size:1em;line-height:1.4}
 body,button,input,select,textarea{font-family:sans-serif;color:#222}
 ul,ol{margin:1em 0;padding:0 0 0 40px}
