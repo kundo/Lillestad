@@ -14,33 +14,44 @@
   <script src="js/modernizr-2.0.6-custom.js"></script>
 </head>
 <body>
+  <div class="mob-nav">
+    <a href="#">
+      <img src="img/icon-nav.png" alt="" />
+    </a>
+  </div>
   <header>
-    <hgroup>
-      <h1><a href="index.html">Lillestad kommun</a></h1>
-      <h2>En demosajt för att visa hur en kommun kan använda Kundo</h2>
-    </hgroup>
-    <form action="search.html" method="get">
-      <div>
-        <label for="search">Sök:</label>
-        <input type="search" name="q" id="search" placeholder="T.ex: kommunen, klotter">
+    <div class="layout-inner">
+      <div class="hgroup">
+        <h1><a href="index.html">Lillestad kommun</a></h1>
+        <h2>En demosajt för att visa hur en kommun kan använda Kundo</h2>
       </div>
-      <button type="submit" class="grad">Sök</button>
-    </form>
+      <form action="search.html" method="get">
+        <div>
+          <label for="search">Sök:</label>
+          <input type="search" name="q" id="search" placeholder="T.ex: kommunen, klotter">
+        </div>
+        <button type="submit">Sök</button>
+      </form>
+    </div>
   </header>
   <nav id="topnav">
-    <ul class="grad">
-      <li class="grad"><a href="#">Bygga & Bo</a></li>
-      <li class="grad"><a href="#">Förskola & Skola</a></li>
-      <li class="grad"><a href="#">Miljö & Energi</a></li>
-      <li class="grad"><a href="#">Näringsliv & Arbete</a></li>
-      <li class="grad"><a href="#">Omsorg & Stöd</a></li>
-      <li class="grad"><a href="#">Resor & Trafik</a></li>
-      <li class="grad"><a href="#">Uppleva & Göra</a></li>
-      <li class="grad"><a href="#">Om kommunen</a></li>
-    </ul>
+    <div class="layout-inner">
+      <ul>
+        <li><a href="#">Bygga & Bo</a></li>
+        <li><a href="#">Förskola & Skola</a></li>
+        <li><a href="#">Miljö & Energi</a></li>
+        <li><a href="#">Näringsliv & Arbete</a></li>
+        <li><a href="#">Omsorg & Stöd</a></li>
+        <li><a href="#">Resor & Trafik</a></li>
+        <li><a href="#">Uppleva & Göra</a></li>
+        <li><a href="#">Om kommunen</a></li>
+      </ul>
+    </div>
   </nav>
   <div id="main" role="main">
-    <section id="content" class="search_results">
+    <div class="layout-inner">
+
+      <section id="content" class="search_results">
       <h2>Sökresultat från vår webbplats</h2>
       <ul id="site_results">
         <li>
@@ -53,47 +64,50 @@
       <h2>Sökresultat från vårt medborgarforum</h2>
       <ul id="kundo_results"></ul>
     </section>
-    <section id="sidebar">
-      <h2>Nyheter</h2>
-      <ul id="news">
-        <li>
-          <time>2011-11-01</time>
-          <h3><a href="#">"Engagera mera"- filmen om Lillsätra Ungdomsråd</a></h3>
-          <p>"Vi finner en väg - eller också bygger vi en ny!" Kraften i Lillsätra
-          Ungdomsråds engagemang går inte att missa. Se filmen "Engagera mera!"</p>
-        </li>
-        <li>
-          <time>2011-10-28</time>
-          <h3><a href="#">Majoritetspartierna i Lillestad kommun presenterar budget för 2012</a></h3>
-          <p>Lillestads politiska majoritet presenterade på Kommunstyrelsen den 28/10
-          förslag till budget för 2012.</p>
-        </li>
-        <li>
-          <time>2011-10-27</time>
-          <h3><a href="#">Stadens förskolor finalist till utmärkelsen Svensk Kvalitet</a></h3>
-          <p>Tre kommunala förskolor i Lillestad är nominerade till utmärkelsen Svensk
-          Kvalitet.</p>
-        </li>
-      </ul>
-      <h2 id="kundo-header">Medborgare tycker till:</h2>
-      <div id="kundo-widget"></div>
-      <script>(function() {function async_load(){var s=document.createElement("script"); window.kundo_widget_width=""; s.type="text/javascript"; s.async=true; s.src="http://kundo.se/widget/lillestads-kommun.js?data=latest&style=none&width=0&watermark=false"; var x=document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,x);} if(window.attachEvent) window.attachEvent("onload",async_load); else window.addEventListener("load",async_load,false);})();</script>
-    </section>
+      <section id="sidebar">
+        <h2>Nyheter</h2>
+        <ul id="news">
+          <li>
+            <time>2013-11-01</time>
+            <h3><a href="#">"Engagera mera"- filmen om Lillsätra Ungdomsråd</a></h3>
+            <p>"Vi finner en väg - eller också bygger vi en ny!" Kraften i Lillsätra
+            Ungdomsråds engagemang går inte att missa. Se filmen "Engagera mera!"</p>
+          </li>
+          <li>
+            <time>2013-10-28</time>
+            <h3><a href="#">Majoritetspartierna presenterar budget för 2014</a></h3>
+            <p>Lillestads politiska majoritet presenterade på Kommunstyrelsen den 28/10
+            förslag till budget för 2014.</p>
+          </li>
+          <li>
+            <time>2013-10-27</time>
+            <h3><a href="#">Stadens förskolor finalist i Svensk Kvalitet-priset</a></h3>
+            <p>Tre kommunala förskolor i Lillestad är nominerade till utmärkelsen Svensk
+            Kvalitet.</p>
+          </li>
+        </ul>
+        <h2 id="kundo-header">Medborgare tycker till:</h2>
+        <div id="kundo-widget"></div>
+        <script>(function() {function async_load(){var s=document.createElement("script"); window.kundo_widget_width=""; s.type="text/javascript"; s.async=true; s.src="http://kundo.se/widget/lillestads-kommun.js?data=latest&style=none&width=0&watermark=false"; var x=document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,x);} if(window.attachEvent) window.attachEvent("onload",async_load); else window.addEventListener("load",async_load,false);})();</script>
+      </section>
+    </div>
   </div>
-  <footer class="grad">
-    <address>
-      Telefon: <strong>000-12 34 56</strong>, E-post: <strong><a href="">info@kundo.se</a></strong><br />
-      Postadress: <strong>Lillestad centrum, 123 45 Lillestad</strong>
-    </address>
-    <nav>
-      <ul>
-        <li id="tyck-till-footer"><a href="http://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
-        <li><a href="#">Om webbplatsen</a></li>
-        <li><a href="#">RSS</a></li>
-        <li><a href="#">API</a></li>
-        <li><a href="#">Intranätet för anställda</a></li>
-      </ul>
-    </nav>
+  <footer>
+    <div class="layout-inner">
+      <address>
+        Telefon: <strong>000-12 34 56</strong>, E-post: <strong><a href="">info@kundo.se</a></strong><br />
+        Postadress: <strong>Lillestad centrum, 123 45 Lillestad</strong>
+      </address>
+      <nav>
+        <ul>
+          <li id="tyck-till-footer"><a href="http://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
+          <li><a href="#">Om webbplatsen</a></li>
+          <li><a href="#">RSS</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Intranätet för anställda</a></li>
+        </ul>
+      </nav>
+    </div>
   </footer>
 
   <!-- Load Kundo script -->
@@ -152,13 +166,23 @@
       results.append("<p>Du behöver skriva in en sökfråga för att få några träffar.</p>")
     }
   </script>
-
+  
   <!-- Load Google Analytics -->
   <script>
     var _gaq=[['_setAccount','UA-6180691-8'],['_trackPageview'],['_trackPageLoadTime']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+
+  <!-- Load mobile navigation -->
+  <script>
+    $(function(){
+      $(".mob-nav a").click(function(){
+        $("#topnav").toggle();
+        return false;
+      })
+    });
   </script>
 </body>
 </html>
