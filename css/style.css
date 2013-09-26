@@ -33,7 +33,6 @@ body {
 }
 header {
    background: #51e36a;
-   padding-left: 10px;
    padding-right: 10px;
 }
   header > div{
@@ -64,7 +63,7 @@ header {
   header form {
     clear:both;
     padding-bottom: 15px;
-
+    padding-left: 10px;
   }
     header form label {
       position: absolute;
@@ -77,7 +76,7 @@ header {
       font-size: 16px;
       height: 22px;
       padding: 4px 2px;
-      width: 200px;
+      width: 82%;
     }
     header form button {
       border: none;
@@ -182,6 +181,40 @@ header {
           text-indent: -10000px;
           width: 13px;
         }
+
+  #error-report-form{
+    max-width: 500px;
+  }
+    #error-report-form input,
+    #error-report-form textarea,
+    #error-report-form textarea{
+      display:block;
+      width: 100%;
+      -moz-box-sizing:border-box;
+      -webkit-box-sizing:border-box;
+      box-sizing:border-box;
+      border: 1px solid #51E36A;
+      background: #fff;
+      padding: 4px;
+      font-size: 16px;
+    }
+    #error-report-form button{
+      border: none;
+      font-size: 1.1em;
+      height: 29px;
+      padding: 2px 7px;
+      vertical-align: bottom;
+      background: #276832;
+      color: #fff;
+      -moz-border-radius: 7px;
+      -webkit-border-radius: 7px;
+      border-radius: 7px;
+      width: 100%;
+    }
+  #step2{
+    display: none;
+  }
+
   #sidebar {
     border-top: 1px dotted #000;
     padding-top: 20px;
@@ -244,6 +277,7 @@ footer {
     padding-top: 0;
   }
   footer nav {
+    font-size: .9em;
   }
     footer nav ul {
       margin: 0;
@@ -255,6 +289,8 @@ footer {
         list-style: none;
         padding: 7px;
       }
+
+
 
 /* Modules */
 a {
@@ -283,6 +319,10 @@ a {
   background: #276832;
   padding-left: 10px;
 }
+#map-canvas{
+  width: 300px;
+  height: 250px;
+}
 
 
 @media only screen and (min-width: 600px){
@@ -310,6 +350,9 @@ a {
       right: 10px;
       top:55px;
     }
+      header form input{
+        width: 200px;
+      }
   #topnav{
     position: static;
     display: block;
@@ -329,7 +372,15 @@ a {
     float: left;
     width: 77%;
   }
-
+  #map-canvas{
+    width: 100%;
+    height: 350px;
+  }
+  #error-report-form input,
+  #error-report-form textarea,
+  #error-report-form textarea{
+    font-size: 1em;
+  }
   #sidebar {
     border-left: 1px solid #ddd;
     float: left;
@@ -357,6 +408,7 @@ a {
     position: absolute;
     right: 15px;
     top: 20px;
+    font-size: 1em;
   }
    footer nav ul {
       margin: 0;
@@ -368,7 +420,6 @@ a {
         list-style: none;
         padding: 7px;
       }
-
   footer > div{
     position: relative;
     overflow: hidden;
@@ -387,6 +438,10 @@ a {
     }
      #topnav li a{
       padding: 15px;
+    }
+    #error-report-form button{
+      display: inline-block;
+      width: auto;
     }
 }
 

@@ -26,7 +26,7 @@
     .kundo_error {
       background: #fcc;
       padding: 3px;
-      margin-left: 5px;
+      margin-top: 2px;
     }
   </style>
     <!-- START GOOGLE MAPS -->
@@ -131,76 +131,91 @@
   <!-- END GOOGLE MAPS -->
 </head>
 <body>
+  <div class="mob-nav">
+    <a href="#">
+      <img src="img/icon-nav.png" alt="" />
+    </a>
+  </div>
   <header>
-    <hgroup>
-      <h1><a href="index.html">Lillestad kommun</a></h1>
-      <h2>En demosajt för att visa hur en kommun kan använda Kundo</h2>
-    </hgroup>
-    <form action="search.html" method="get">
-      <div>
-        <label for="search">Sök:</label>
-        <input type="search" name="q" id="search" placeholder="T.ex: kommunen, klotter">
+    <div class="layout-inner">
+      <div class="hgroup">
+        <h1><a href="index.html">Lillestad kommun</a></h1>
+        <h2>En demosajt för att visa hur en kommun kan använda Kundo</h2>
       </div>
-      <button type="submit" class="grad">Sök</button>
-    </form>
+      <form action="search.html" method="get">
+        <div>
+          <label for="search">Sök:</label>
+          <input type="search" name="q" id="search" placeholder="T.ex: kommunen, klotter">
+        </div>
+        <button type="submit">Sök</button>
+      </form>
+    </div>
   </header>
   <nav id="topnav">
-    <ul class="grad">
-      <li class="grad"><a href="#">Bygga & Bo</a></li>
-      <li class="grad"><a href="#">Förskola & Skola</a></li>
-      <li class="grad"><a href="#">Miljö & Energi</a></li>
-      <li class="grad"><a href="#">Näringsliv & Arbete</a></li>
-      <li class="grad"><a href="#">Omsorg & Stöd</a></li>
-      <li class="grad"><a href="#">Resor & Trafik</a></li>
-      <li class="grad"><a href="#">Uppleva & Göra</a></li>
-      <li class="grad"><a href="#">Om kommunen</a></li>
-    </ul>
+    <div class="layout-inner">
+      <ul>
+        <li><a href="#">Bygga & Bo</a></li>
+        <li><a href="#">Förskola & Skola</a></li>
+        <li><a href="#">Miljö & Energi</a></li>
+        <li><a href="#">Näringsliv & Arbete</a></li>
+        <li><a href="#">Omsorg & Stöd</a></li>
+        <li><a href="#">Resor & Trafik</a></li>
+        <li><a href="#">Uppleva & Göra</a></li>
+        <li><a href="#">Om kommunen</a></li>
+      </ul>
+    </div>
   </nav>
   <div id="main" role="main">
-    <section id="content" class="error_report">
-       Flytta markeringen till platsen för felet du vill rapportera.
-        <div id="map-canvas" style="height:250px;width:300px"></div>
-        <div id="post_form">
-          <form method="POST">
-             
-            <input type="hidden" name="topic" id="topic" value="P" />
-            <input type="hidden" id="coords" name="coords" value="59.26496439999999,15.261298500000066" />
-            <input type="hidden" id="address" name="address" value="Ormestagatan 11, 702 83 Örebro, Sverige"/>
-            <input id="error_url" name="error_url" type="hidden" value="" />
-            <input id="success_url" name="success_url" type="hidden" value /="">
+    <div class="layout-inner">
+      <section id="content" class="error_report">
+          <div id="step1">
+            <h2>Lillestads felrapportering</h2>
+            <p>Flytta markeringen till platsen för felet du vill rapportera.</p>
+            <div id="map-canvas"></div>
+            <div id="post_form">
+            <form method="POST" id="error-report-form">
+                 
+                <input type="hidden" name="topic" id="topic" value="P" />
+                <input type="hidden" id="coords" name="coords" value="59.26496439999999,15.261298500000066" />
+                <input type="hidden" id="address" name="address" value="Ormestagatan 11, 702 83 Örebro, Sverige"/>
+                <input id="error_url" name="error_url" type="hidden" value="" />
+                <input id="success_url" name="success_url" type="hidden" value /="">
 
-            <p><input name="title" placeholder="Titel"></p>
-            <p><textarea name="text" placeholder="Beskrivning"></textarea></p>
-            <p><input name="name" placeholder="Namn"></p>
-            <p><input name="useremail" placeholder="E-post"></p>
-            <p>
-              <button onclick="post_dialog(this.form)">Skicka</button>
-            </p>
-          </form>
-        </div>
-
-    </section>
+                <p><input name="title" placeholder="Titel"></p>
+                <p><textarea name="text" placeholder="Beskrivning" rows="5"></textarea></p>
+                <p><input name="name" placeholder="Namn"></p>
+                <p><input name="useremail" placeholder="E-post"></p>
+                <p>
+                  <button onclick="post_dialog(this.form)">Skicka</button>
+                </p>
+              </form>
+            </div>
+          </div>
+          <div id="step2">
+            <h2>Tack för felraporten!</h2>
+            <p>Du kan <a href="#" id="result-link">följa ditt rapporterade ärende här.</a></p>
+          </div>
+      </section>
+    </div>
   </div>
-  <footer class="grad">
-    <address>
-      Telefon: <strong>000-12 34 56</strong>, E-post: <strong><a href="">info@kundo.se</a></strong><br />
-      Postadress: <strong>Lillestad centrum, 123 45 Lillestad</strong>
-    </address>
-    <nav>
-      <ul>
-        <li id="tyck-till-footer"><a href="http://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
-        <li><a href="#">Om webbplatsen</a></li>
-        <li><a href="#">RSS</a></li>
-        <li><a href="#">API</a></li>
-        <li><a href="#">Intranätet för anställda</a></li>
-      </ul>
-    </nav>
+ <footer>
+    <div class="layout-inner">
+      <address>
+        Telefon: <strong>000-12 34 56</strong>, E-post: <strong><a href="">info@kundo.se</a></strong><br />
+        Postadress: <strong>Lillestad centrum, 123 45 Lillestad</strong>
+      </address>
+      <nav>
+        <ul>
+          <li id="tyck-till-footer"><a href="http://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
+          <li><a href="#">Om webbplatsen</a></li>
+          <li><a href="#">RSS</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Intranätet för anställda</a></li>
+        </ul>
+      </nav>
+    </div>
   </footer>
 
-
-
-
- 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="js/jquery.ba-postmessage.min.js"></script>
   <script src="js/api.js"></script>
@@ -224,17 +239,22 @@
     }
 
     function post_dialog(form){
+      $("#error-report-form button").text("Laddar...");
       if (!window.API) { return; }
 
       function success(data){
         $('.kundo_error').remove();
         var url = data["absolute_url"];
         var id = data["id"];
-        alert("Your message (Id " + id + ") was successfully posted to: " + url);
+        $("#result-link").attr("href", url);
+        $("#step1").hide();
+        $("#step2").show();
       }
 
       function error(data){
         $('.kundo_error').remove();
+        $("#error-report-form button").text("Skicka");
+
         $.each(data, function(name, error) {
           $("[name='" + name + "']").after(
             $('<span class="kundo_error">' + error + '</span>')
