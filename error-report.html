@@ -54,7 +54,17 @@
             var pos = new google.maps.LatLng(position.coords.latitude,
                                              position.coords.longitude);
 
-            setFormCoords(position.coords.latitude, position.coords.longitude);
+            geocoder = new google.maps.Geocoder();
+             geocoder.geocode({
+                latLng: pos
+              }, function(responses) {
+                if (responses && responses.length > 0) {
+                  setFormCoords(position.coords.latitude, position.coords.longitude,responses[0].formatted_address);
+                } else {
+                  setFormCoords(position.coords.latitude, position.coords.longitude);
+                }
+              });
+
 
             var marker = new google.maps.Marker({
               position: pos,
@@ -102,7 +112,7 @@
       }
 
       function setFormCoords(lat, lng, address){
-        console.log(lat, lng, address)
+        //console.log(lat, lng, address)
         document.getElementById('coords').value = lat+","+lng;
         document.getElementById('address').value = address;
       }
@@ -172,23 +182,36 @@
             <h2>Lillestads felrapportering</h2>
             <p>Flytta markeringen till platsen för felet du vill rapportera.</p>
             <div id="map-canvas"></div>
-            <div id="post_form">
-            <form method="POST" id="error-report-form">
-                 
-                <input type="hidden" name="topic" id="topic" value="P" />
-                <input type="hidden" id="coords" name="coords" value="59.26496439999999,15.261298500000066" />
-                <input type="hidden" id="address" name="address" value="Ormestagatan 11, 702 83 Örebro, Sverige"/>
-                <input id="error_url" name="error_url" type="hidden" value="" />
-                <input id="success_url" name="success_url" type="hidden" value /="">
+            <form method="POST" id="file-upload-form" enctype="multipart/form-data">
+                <div id="file-upload-input">
+                  <input name="file" type="file" onchange="post_file(this.form)" />
+                  <a href="#">
+                    Bifoga bild
+                  </a>
+                </div>
 
-                <p><input name="title" placeholder="Titel"></p>
-                <p><textarea name="text" placeholder="Beskrivning" rows="5"></textarea></p>
-                <p><input name="name" placeholder="Namn"></p>
-                <p><input name="useremail" placeholder="E-post"></p>
-                <p>
-                  <button onclick="post_dialog(this.form)">Skicka</button>
-                </p>
-              </form>
+                <progress></progress>
+                <input class="error_url" name="error_url" type="hidden" value="" />
+                <input class="success_url" name="success_url" type="hidden" value="" />
+            </form>
+            <div id="file-name"></div>
+            <div id="post_form">
+              <form method="POST" id="error-report-form">
+                   
+                  <input type="hidden" name="topic" id="topic" value="P" />
+                  <input type="hidden" id="coords" name="coords" value="" />
+                  <input type="hidden" id="address" name="address" value=""/>
+                  <input class="error_url" name="error_url" type="hidden" value="" />
+                  <input class="success_url" name="success_url" type="hidden" value="" />
+
+                  <p><input name="title" placeholder="Titel"></p>
+                  <p><textarea name="text" id="error-report-description" placeholder="Beskrivning" rows="5"></textarea></p>
+                  <p><input name="name" placeholder="Namn"></p>
+                  <p><input name="useremail" placeholder="E-post"></p>
+                  <p>
+                    <button onclick="post_dialog(this.form)">Skicka</button>
+                  </p>
+                </form>
             </div>
           </div>
           <div id="step2">
@@ -233,8 +256,8 @@
       window.API = new KundoAPI(slug);
 
       var api_url = API.BASE_URL + "/" + slug;
-      $("#error_url").attr("value", api_url + "/js-endpoint/")
-      $("#success_url").attr("value", api_url + "/js-endpoint/")
+      $(".error_url").attr("value", api_url + "/js-endpoint/")
+      $(".success_url").attr("value", api_url + "/js-endpoint/")
       return false;
     }
 
@@ -261,6 +284,8 @@
           );
         });
       }
+     
+      $("#error-report-description").val($("#error-report-description").val() + "\n\nBifogad fil: " +  $("#file-name").attr("data-file-url"));
 
       API.POST.dialog(form, {
         success: success,
@@ -269,6 +294,42 @@
     }
   </script>
   <!-- END POST KUNDO DIALOG -->
+  <!-- START KUNDO FILE UPLOAD -->
+  <script>
+
+  function file_success(data){
+    $("#file-upload-form, progress").hide();
+    $("#file-name").attr("data-file-url", data.file_url).html("<strong>Bifogad fil:</strong> "+ data.file_url.replace(/^.*[\\\/]/, ''));
+  }
+
+  function file_error(data){
+    alert("Filen kunde inte laddas upp. Vänligen försök igen.")
+  }
+
+  function post_file(form){
+      if (!window.API) { return; }
+
+      $("progress").show();
+
+      API.POST.file(form, {
+        success: file_success,
+        error:  file_error
+      });
+      form.submit();
+    }
+
+
+  </script>
+  <!-- END KUNDO FILE UPLOAD -->
+  <!-- Load mobile navigation -->
+  <script>
+    $(function(){
+      $(".mob-nav a").click(function(){
+        $("#topnav").toggle();
+        return false;
+      })
+    });
+  </script>
 
 </body>
 </html>

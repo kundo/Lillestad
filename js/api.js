@@ -1,6 +1,6 @@
 function KundoAPI(slug) {
   // Instance variables
-  this.BASE_URL = "http://test.kundo.se/api";
+  this.BASE_URL = "http://kundo.se/api";
   this.FORMAT = ".json";
   if (!slug) {
     throw new Error("Invalid slug. Please provide a proper slug.");
@@ -53,7 +53,11 @@ function KundoAPI(slug) {
   }
   this.post_via_iframe = function(url, form, settings) {
     // NOTE: data_on_success parameter makes the API return more data on success
-    url = this.BASE_URL + url + "?data_on_success";
+    var queryConcat= "?";
+    if(url.indexOf("?") != -1)
+      queryConcat = "&";
+    url = this.BASE_URL + url + queryConcat +"data_on_success";
+
     if (!jQuery.receiveMessage) {
       throw new Error(
         "Posting data through the API requires \"jQuery postMessage\", " +
@@ -144,6 +148,15 @@ function KundoAPI(slug) {
         throw new Error("You need to specify both a success and error callback");
       }
       that.post_via_iframe("/" + that.slug, form, settings);
+    },
+    file: function(form, settings) {
+      if (!form) {
+        throw new Error("You need to specify a valid form that will post the file");
+      }
+      else if (!settings.success || !settings.error) {
+        throw new Error("You need to specify both a success and error callback");
+      }
+      that.post_via_iframe('/file/' + that.slug, form, settings);
     },
     comment: function(form, dialog_id, settings) {
       if (!form) {

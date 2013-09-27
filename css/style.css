@@ -32,7 +32,7 @@ body {
   line-height: 1.3;
 }
 header {
-   background: #51e36a;
+   background: #96e285;
    padding-right: 10px;
 }
   header > div{
@@ -56,8 +56,8 @@ header {
       font-size: 1.8em;
     }
     header h2 {
-      color: #fff;
-      font-size: .9em;
+      color: #555;
+      font-size: 1.05em;
       font-style: italic;
     }
   header form {
@@ -193,7 +193,7 @@ header {
       -moz-box-sizing:border-box;
       -webkit-box-sizing:border-box;
       box-sizing:border-box;
-      border: 1px solid #51E36A;
+      border: 1px solid #96E285;
       background: #fff;
       padding: 4px;
       font-size: 16px;
@@ -201,8 +201,7 @@ header {
     #error-report-form button{
       border: none;
       font-size: 1.1em;
-      height: 29px;
-      padding: 2px 7px;
+      padding: 7px;
       vertical-align: bottom;
       background: #276832;
       color: #fff;
@@ -214,7 +213,35 @@ header {
   #step2{
     display: none;
   }
-
+  #file-upload-input{
+    position: relative;
+    width: 138px;
+    height:30px;
+  }
+    #file-upload-input input{
+      position: absolute;
+      left: 0;
+      z-index: 2;
+      -moz-opacity:0 ;
+      filter:alpha(opacity: 0);
+      opacity: 0;
+      width: 118px;
+      height: 35px;
+    }
+    #file-upload-input a{
+      border: none;
+      font-size: 1.1em;
+      height: 19px;
+      padding: 7px;
+      vertical-align: bottom;
+      color: #fff;
+      -moz-border-radius: 7px;
+      -webkit-border-radius: 7px;
+      border-radius: 7px;
+      display: inline-block;
+      padding-left: 38px;
+      background: #276832 url(../img/camera.png) no-repeat 7px 7px;
+    }
   #sidebar {
     border-top: 1px dotted #000;
     padding-top: 20px;
@@ -263,9 +290,8 @@ header {
           margin: 0 0 0.5em;
         }
 footer {
-   background: #51e36a;
+   background: #96e285;
    margin-top: 20px;
-
 }
   footer > div{
     position: relative;
@@ -322,6 +348,10 @@ a {
 #map-canvas{
   width: 300px;
   height: 250px;
+  margin-bottom: 15px;
+}
+progress{
+  display: none;
 }
 
 
