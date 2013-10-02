@@ -285,8 +285,10 @@
         });
       }
      
-      $("#error-report-description").val($("#error-report-description").val() + "\n\nBifogad fil: " +  $("#file-name").attr("data-file-url"));
-
+     var fileUrl = $("#file-name").attr("data-file-url");
+     if(fileUrl!=undefined && fileUrl!=""){
+       $("#error-report-description").val($("#error-report-description").val() + "\n\nBifogad fil: " +  fileUrl);
+     }
       API.POST.dialog(form, {
         success: success,
         error: error
