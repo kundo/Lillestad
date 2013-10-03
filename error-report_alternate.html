@@ -299,16 +299,15 @@
   <!-- START KUNDO FILE UPLOAD -->
   <script>
   $(function(){
-      var url = "http://localhost:8000/api/file/lillestads-kommun?data_on_success";
+      var url = "http://kundo.se/api/file/lillestads-kommun?data_on_success";
       $('#file-upload-form div input').fileupload({
           url: url,
           dataType: 'json',
           forceIframeTransport: true,
-          redirect:'http://10.0.1.9:8001/result.html',
+          redirect:'http://lillestad.se/result.html',
           redirectParamName: 'success_url',
           done: function (e, data) {
             var file_url = data.result.file_url;
-            console.log(data);
             $("#file-upload-form, progress").hide();
             $("#file-name").attr("data-file-url", file_url).html("<strong>Bifogad fil:</strong> "+ file_url.replace(/^.*[\\\/]/, ''));
           },
