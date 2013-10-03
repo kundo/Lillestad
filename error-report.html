@@ -298,20 +298,24 @@
   <!-- END POST KUNDO DIALOG -->
   <!-- START KUNDO FILE UPLOAD -->
   <script>
+  var timer = null;
 
   function file_success(data){
+    clearTimeout(timer);
     $("#file-upload-form, progress").hide();
     $("#file-name").attr("data-file-url", data.file_url).html("<strong>Bifogad fil:</strong> "+ data.file_url.replace(/^.*[\\\/]/, ''));
   }
 
   function file_error(data){
     alert("Filen kunde inte laddas upp. Vänligen försök igen.");
+    $("progress").hide();
   }
 
   function post_file(form){
       if (!window.API) { return; }
 
       $("progress").show();
+      timer = setTimeout(file_error, 10000);
 
       API.POST.file(form, {
         success: file_success,
