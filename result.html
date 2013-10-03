@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<!--
+	CUSTOMIZED FOR KUNDO
+/*
+ * jQuery Iframe Transport Plugin Redirect Page 2.0.1
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Iframe Transport Plugin Custom Kundo Redirect Page</title>
+</head>
+<body>
+<script>
+var data_as_params = decodeURIComponent(window.location.search.slice(1));
+var data_file_name = data_as_params.split("&")[1].replace("file_url=", "")
+document.body.innerText=document.body.textContent=data_file_name;
+document.body.innerText=document.body.textContent='{"file_url": "'+data_file_name+'"}';
+</script>
+</body>
+</html>

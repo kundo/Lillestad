@@ -186,7 +186,6 @@ header {
     max-width: 500px;
   }
     #error-report-form input,
-    #error-report-form textarea,
     #error-report-form textarea{
       display:block;
       width: 100%;
@@ -197,6 +196,9 @@ header {
       background: #fff;
       padding: 4px;
       font-size: 16px;
+    }
+    #error-report-form input{
+      height: 2.2em;
     }
     #error-report-form button{
       border: none;
