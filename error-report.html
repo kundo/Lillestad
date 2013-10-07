@@ -171,7 +171,7 @@
         <li><a href="#">Omsorg & Stöd</a></li>
         <li><a href="#">Resor & Trafik</a></li>
         <li><a href="#">Uppleva & Göra</a></li>
-        <li><a href="#">Om kommunen</a></li>
+        <li><a href="error-report.html">Felrapportering</a></li>
       </ul>
     </div>
   </nav>
@@ -180,7 +180,7 @@
       <section id="content" class="error_report">
           <div id="step1">
             <h2>Lillestads felrapportering</h2>
-            <p>Flytta markeringen till platsen för felet du vill rapportera.</p>
+            <p>Flytta markeringen till platsen för felet du vill rapportera. Läs <a href="http://blogg.kundo.se/kommunal-felrapportering-med-kundo/">mer om felrapportering med Kundo här</a>.</p>
             <div id="map-canvas"></div>
             <form method="POST" id="file-upload-form" enctype="multipart/form-data">
                 <div id="file-upload-input">
@@ -315,7 +315,7 @@
       if (!window.API) { return; }
 
       $("progress").show();
-      timer = setTimeout(file_error, 10000);
+      timer = setTimeout(file_error, 30000);
 
       API.POST.file(form, {
         success: file_success,
