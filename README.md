@@ -11,6 +11,7 @@ Funktioner:
 * [Länk till medborgarforum](http://kundo.se/org/lillestads-kommun/): Exempel på hur man kan lyfta fram medborgardelaktighet.
 * Widget: Hämta de senaste inläggen från forumet och visa upp på framsidan
 * Tyck till-knappen: Enkelt sätt att samla in åsikter från medborgarna
+* Integration i sök: Vid sökningar så hämtar vi inlägg från Kundo förutom från ert webbsök. ([Alternativ: Integrera med SiteSeeker](http://blogg.kundo.se/sa-latt-indexerar-du-kundo-med-siteseeker/))
 * [Facebook-app](https://www.facebook.com/pages/Lillestads-kommun/128772083897828?sk=app_111434185605659): Ett sätt att visa upp frågor och förslag som kommit in även på Facebook.
 
 Vi berättar gärna mer om hur vi har tänkt, [prata gärna med oss](https://kundo.se/contact/)!
