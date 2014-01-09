@@ -299,30 +299,49 @@
   <!-- START KUNDO FILE UPLOAD -->
   <script>
   var timer = null;
+  var kundo_file_form = null;
+  var retries = 0;
+  var max_retries = 3;
+  var file_upload_success = false;
 
   function file_success(data){
+    if(file_upload_success){
+      return false;
+    }
+
+    file_upload_success = true;
     clearTimeout(timer);
     $("#file-upload-form, progress").hide();
     $("#file-name").attr("data-file-url", data.file_url).html("<strong>Bifogad fil:</strong> "+ data.file_url.replace(/^.*[\\\/]/, ''));
   }
 
   function file_error(data){
-    alert("Filen kunde inte laddas upp. Vänligen försök igen.");
-    $("progress").hide();
+    if(retries >= max_retries){
+      alert("Filen kunde inte laddas upp. Vänligen ladda om sidan och försök igen.");
+      $("progress").hide();
+      return false;      
+    }
+    //try again
+    retries +=1;
+    do_post(kundo_file_form);
   }
 
   function post_file(form){
       if (!window.API) { return; }
 
       $("progress").show();
-      timer = setTimeout(file_error, 30000);
+      kundo_file_form = form;
+      do_post(form);
+  }
 
-      API.POST.file(form, {
-        success: file_success,
-        error: file_error
-      });
-      form.submit();
-    }
+  function do_post(form){
+    timer = setTimeout(file_error, 30000);
+    API.POST.file(form, {
+      success: file_success,
+      error: file_error
+    });
+    form.submit();
+  }
 
 
   </script>
