@@ -162,6 +162,17 @@
     })();
   </script>
 
+  <!-- Load Kundo-Chat script -->
+  <script>
+    (function(w,d,i){
+      w.$kundo_chat={'slug':i};
+      s=d.createElement('script'),x=d.scripts[0];
+      s.async=1;
+      s.src="https://chat.kundo.se/chat-js/" + i + "/widget.js";
+      x.parentNode.insertBefore(s,x)
+    }(this,document,'lillestads-kommun'));
+  </script>
+
   <!-- Load jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
