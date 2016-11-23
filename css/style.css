@@ -431,6 +431,9 @@ progress{
     clear: right;
     margin-right: 0;
   }
+  .long-text {
+    padding-right: 20px;
+  }
   footer address {
     float: left;
     width: 40%;
