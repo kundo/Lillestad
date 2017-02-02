@@ -1,6 +1,6 @@
 function KundoAPI(slug) {
   // Instance variables
-  this.BASE_URL = "http://kundo.se/api";
+  this.BASE_URL = "https://kundo.se/api";
   this.FORMAT = ".json";
   if (!slug) {
     throw new Error("Invalid slug. Please provide a proper slug.");
