@@ -88,7 +88,7 @@
         </ul>
         <h2 id="kundo-header">Medborgare tycker till:</h2>
         <div id="kundo-widget"></div>
-        <script>(function() {function async_load(){var s=document.createElement("script"); window.kundo_widget_width=""; s.type="text/javascript"; s.async=true; s.src="http://kundo.se/widget/lillestads-kommun.js?data=latest&style=none&width=0&watermark=false"; var x=document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,x);} if(window.attachEvent) window.attachEvent("onload",async_load); else window.addEventListener("load",async_load,false);})();</script>
+        <script>(function() {function async_load(){var s=document.createElement("script"); window.kundo_widget_width=""; s.type="text/javascript"; s.async=true; s.src="https://kundo.se/widget/lillestads-kommun.js?data=latest&style=none&width=0&watermark=false"; var x=document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,x);} if(window.attachEvent) window.attachEvent("onload",async_load); else window.addEventListener("load",async_load,false);})();</script>
       </section>
     </div>
   </div>
@@ -100,7 +100,7 @@
       </address>
       <nav>
         <ul>
-          <li id="tyck-till-footer"><a href="http://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
+          <li id="tyck-till-footer"><a href="https://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
           <li><a href="#">Om webbplatsen</a></li>
           <li><a href="#">RSS</a></li>
           <li><a href="#">API</a></li>
@@ -154,7 +154,7 @@
     if (query && query.length > 0) {
       $("#search").val(query);
       $.ajax({
-        url: 'http://kundo.se/api/search/lillestads-kommun/' + query + '.json',
+        url: 'https://kundo.se/api/search/lillestads-kommun/' + query + '.json',
         dataType: "jsonp",
         success: function(data) {
           if (data.length > 0) {

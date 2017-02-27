@@ -22,7 +22,7 @@
       margin: 0;
       overflow: auto;
     }
-   
+
     .kundo_error {
       background: #fcc;
       padding: 3px;
@@ -74,7 +74,7 @@
               title: 'Markera platsen för felet du vill rapportera.'
             });
 
-            google.maps.event.addListener(marker, 'dragend', function() 
+            google.maps.event.addListener(marker, 'dragend', function()
             {
                 geocodePosition(marker.getPosition());
             });
@@ -90,20 +90,20 @@
       }
 
 
-      function geocodePosition(pos) 
+      function geocodePosition(pos)
       {
          geocoder = new google.maps.Geocoder();
          geocoder.geocode
           ({
               latLng: pos
-          }, 
-              function(results, status) 
+          },
+              function(results, status)
               {
-                  if (status == google.maps.GeocoderStatus.OK) 
+                  if (status == google.maps.GeocoderStatus.OK)
                   {
                       setFormCoords(results[0].geometry.location.lat(), results[0].geometry.location.lng(),results[0].formatted_address)
-                      
-                  } 
+
+                  }
                   else{
                     //location not found because of Långtbortistan
                   }
@@ -197,7 +197,7 @@
             <div id="file-name"></div>
             <div id="post_form">
               <form method="POST" id="error-report-form">
-                   
+
                   <input type="hidden" name="topic" id="topic" value="P" />
                   <input type="hidden" id="coords" name="coords" value="" />
                   <input type="hidden" id="address" name="address" value=""/>
@@ -229,7 +229,7 @@
       </address>
       <nav>
         <ul>
-          <li id="tyck-till-footer"><a href="http://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
+          <li id="tyck-till-footer"><a href="https://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
           <li><a href="#">Om webbplatsen</a></li>
           <li><a href="#">RSS</a></li>
           <li><a href="#">API</a></li>
@@ -284,7 +284,7 @@
           );
         });
       }
-     
+
      var fileUrl = $("#file-name").attr("data-file-url");
      if(fileUrl!=undefined && fileUrl!=""){
        $("#error-report-description").val($("#error-report-description").val() + "\n\nBifogad fil: " +  fileUrl);
@@ -319,7 +319,7 @@
     if(retries >= max_retries){
       alert("Filen kunde inte laddas upp. Vänligen ladda om sidan och försök igen.");
       $("progress").hide();
-      return false;      
+      return false;
     }
     //try again
     retries +=1;
