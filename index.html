@@ -165,13 +165,14 @@
   <!-- Load Kundo-Chat script -->
   <script>
     (function(w,d,i){
-      w.$kundo_chat={'slug':i};
+      w.$kundo_chat={'org_id':i};
       w.$kundo_chat.options = { smallDeviceHeight: "calc(60vh - 50px)" };
+      w.$kundo_chat.custom_texts = { SELECT_FLOW_TEXT: "Välj kanal" };
       s=d.createElement('script'),x=d.scripts[0];
       s.async=1;
-      s.src="https://chat.kundo.se/chat-js/" + i + "/widget.js";
+      s.src="https://chat.kundo.se/chat-js/org/" + i + "/widget.js";
       x.parentNode.insertBefore(s,x)
-    }(this,document,'lillestads-kommun'));
+    }(this,document,602));
   </script>
 
   <!-- Load jQuery -->
