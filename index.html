@@ -164,16 +164,14 @@
 
   <!-- Load Kundo-Chat script -->
   <script>
-    (function(w,d,i){
-      w.$kundo_chat={'org':i};
+    (function(w){
+      w.$kundo_chat=w.$kundo_chat||{};
+      w.$kundo_chat.org=602;
       w.$kundo_chat.options = { smallDeviceHeight: "calc(60vh - 50px)" };
       w.$kundo_chat.custom_texts = { SELECT_FLOW_TEXT: "Välj kanal" };
-      s=d.createElement('script'),x=d.scripts[0];
-      s.async=1;
-      s.src="https://chat.kundo.se/chat-js/org/" + i + "/widget.js";
-      x.parentNode.insertBefore(s,x)
-    }(this,document,602));
+    }(this));
   </script>
+  <script src="https://static-chat.kundo.se/chat-js/org/602/widget.js" async defer></script>
 
   <!-- Load jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

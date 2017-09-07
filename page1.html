@@ -131,15 +131,14 @@
 
   <!-- Load Kundo-Chat script -->
   <script>
-    (function(w,d,i){
+    (function(w){
       w.$kundo_chat=w.$kundo_chat||{};
-      w.$kundo_chat.slug=i;
-      s=d.createElement('script'),x=d.scripts[0];
-      s.async=1;
-      s.src="https://static-chat.kundo.se/chat-js/" + i + "/widget.js";
-      x.parentNode.insertBefore(s,x)
-    }(this,document,'lillestad-chat-1-e02a23ef'));
-    </script>
+      w.$kundo_chat.org=602;
+      w.$kundo_chat.options = { smallDeviceHeight: "calc(60vh - 50px)" };
+      w.$kundo_chat.custom_texts = { SELECT_FLOW_TEXT: "Välj kanal" };
+    }(this));
+  </script>
+  <script src="https://static-chat.kundo.se/chat-js/org/602/widget.js" async defer></script>
 
   <!-- Load jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
