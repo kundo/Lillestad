@@ -95,7 +95,7 @@
       </address>
       <nav>
         <ul>
-          <li id="tyck-till-footer"><a href="https://kundo.se/org/lillestads-kommun/" onclick="kundo.toggle_box(); return false;">Tyck till om Lillestad</a></li>
+          <li><a href="https://kundo.se/org/lillestads-kommun/">Tyck till om Lillestad</a></li>
           <li><a href="#">Om webbplatsen</a></li>
           <li><a href="#">RSS</a></li>
           <li><a href="#">API</a></li>
@@ -104,30 +104,6 @@
       </nav>
     </div>
   </footer>
-
-  <!-- Load Kundo script -->
-  <script type="text/javascript">
-    var _kundo = _kundo || {};
-    _kundo["org"] = "lillestads-kommun";
-    _kundo["lang"] = "sv";
-    _kundo["btn-type"] = "1";
-
-    (function() {
-      function async_load(){
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = ('https:' == document.location.protocol ? 'https://static-ssl' : 'http://static') +
-        '.kundo.se/embed.js';
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
-      }
-      if (window.attachEvent)
-        window.attachEvent('onload', async_load);
-      else
-        window.addEventListener('load', async_load, false);
-    })();
-  </script>
 
   <!-- Load Kundo-Chat script -->
   <script>
