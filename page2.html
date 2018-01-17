@@ -111,7 +111,10 @@
       w.$kundo_chat=w.$kundo_chat||{};
       w.$kundo_chat.org=602;
       w.$kundo_chat.options = { smallDeviceHeight: "calc(60vh - 50px)" };
-      w.$kundo_chat.custom_texts = { SELECT_FLOW_TEXT: "Välj kanal" };
+      w.$kundo_chat.widget_styles = {
+        align_side: "left",
+        offset: "50px"
+      }
     }(this));
   </script>
   <script src="https://static-chat.kundo.se/chat-js/org/602/widget.js" async defer></script>
