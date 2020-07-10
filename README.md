@@ -7,7 +7,6 @@ En enkel demosajt för att visa hur en kommun kan använda Kundo. Fungerar både
 
 Funktioner:
 
-* Felrapportering: Skicka med bild och position till Kundo som redaktörerna sen kan se som inloggade.
 * [Länk till medborgarforum](https://kundo.se/org/lillestads-kommun/): Exempel på hur man kan lyfta fram medborgardelaktighet.
 * Widget: Hämta de senaste inläggen från forumet och visa upp på framsidan
 * Integration i sök: Vid sökningar så hämtar vi inlägg från Kundo förutom från ert webbsök. (Alternativ: Integrera med SiteSeeker)
