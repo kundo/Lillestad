@@ -49,41 +49,8 @@
   </nav>
   <div id="main" role="main">
     <div class="layout-inner">
-
-      <section id="content" class="search_results">
-      <h2>Omsorg och stöd</h2>
-      <div class="long-text">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc efficitur suscipit rutrum. In imperdiet in augue sit amet egestas. Nunc commodo dui quis mi ultricies pretium. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus vestibulum quis massa in tincidunt. Praesent nec justo ex. Vivamus nulla magna, laoreet rutrum urna at, faucibus porttitor quam.
-          </p>
-          <p>
-            Nullam suscipit dolor in arcu scelerisque, in luctus nulla mattis. Duis semper imperdiet libero, eu malesuada ante hendrerit in. Nam sed consectetur nisl, ac sagittis ligula. Ut interdum, massa eget gravida convallis, sem elit maximus ligula, a porttitor nulla felis nec magna. Nam at erat vel tortor vestibulum blandit. Nulla ligula mi, dapibus id leo quis, elementum mollis arcu. In a nisi eget erat tempus sollicitudin. Nullam ac faucibus justo. Integer molestie odio et aliquam fringilla. Praesent vestibulum velit in velit egestas facilisis. Sed ultrices ac tellus eu fringilla. Phasellus consectetur nunc eget ipsum posuere lacinia. In ut vulputate eros. Morbi id eros est.
-          </p>
-          <p>
-            Donec condimentum bibendum massa, eu egestas leo dictum vel. Duis sodales nisi sem, in hendrerit nisl placerat quis. In sed fermentum odio. Etiam ornare euismod magna vitae porttitor. Pellentesque nunc arcu, fermentum a nisl sed, feugiat laoreet dui. Sed convallis vehicula mauris vitae imperdiet. Etiam maximus euismod dui non cursus. In tincidunt ex nec accumsan accumsan.
-          </p>
-          <p>
-            Integer lobortis placerat finibus. Proin gravida risus vel nisl tristique vulputate. Maecenas convallis nibh sit amet mollis ullamcorper. Nunc enim sapien, viverra sit amet ullamcorper nec, sodales in nisl. Vivamus gravida neque ut lorem lobortis, id elementum magna feugiat. Duis feugiat condimentum massa, convallis eleifend neque ornare vitae. Aenean dapibus et sem vel cursus. Vivamus mi risus, molestie vel maximus eu, convallis ac dolor. Cras ac rhoncus ipsum. Pellentesque odio ligula, porttitor id rutrum suscipit, vehicula vitae tortor. Sed at tortor dignissim, ultricies odio maximus, facilisis odio. Aliquam congue nunc augue, a blandit sem accumsan nec. Etiam sed lacus sapien. Cras dui mauris, auctor sit amet fermentum non, dapibus non sapien. Curabitur commodo euismod faucibus. Curabitur pellentesque dapibus mi, eget commodo leo facilisis vel.
-          </p>
-      </div>
-    </section>
-      <section id="sidebar">
-        <ul id="news">
-          <li>
-            <h3><a href="#">Äldreomsorg</a></h3>
-            <p>Hemvård/hemtjänst, boenden, aktiviteter, mattjänster, flextrafik, hälso- och sjukvård, rehabilitering och hjälpmedel, anhörigstöd.</p>
-          </li>
-          <li>
-            <h3><a href="#">Funktionsnedsättning</a></h3>
-            <p>Boende, socialpsykiatri, daglig verksamhet, ungdomsfritids, personlig assistans, ledsagning, bostadsanpassning, familjehem.</p>
-          </li>
-          <li>
-            <h3><a href="#">Stöd till barn, unga och familj</a></h3>
-            <p>Familjecentraler, orosanmälan, föräldraskap, familjerådgivning, fältgruppen, boenden, kontaktperson, kontaktfamilj, familjehem.</p>
-          </li>
-        </ul>
-
-      </section>
+        <div id="kundo-knowledge-embed"  data-base-url="https://kb.lillestad.se"></div>
+        <script src="https://kb.lillestad.se/js/embed.js" defer></script>
     </div>
   </div>
   <footer>
@@ -131,8 +98,6 @@
     g.src=('https:'==location.protocol?'https://ssl':'https://www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
-
-  <!-- Load mobile navigation -->
   <script>
     $(function(){
       $(".mob-nav a").click(function(){
