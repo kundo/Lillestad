@@ -293,7 +293,7 @@ header {
         }
 footer {
    background: #96e285;
-   margin-top: 20px;
+   margin: 20px 0 50px;
 }
   footer > div{
     position: relative;
